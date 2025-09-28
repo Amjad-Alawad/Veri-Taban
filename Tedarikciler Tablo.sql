@@ -1,0 +1,21 @@
+USE [UrunDB]
+GO
+
+/****** Object:  Table [dbo].[Tedarikciler]    Script Date: 28.09.2025 19:50:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Tedarikciler](
+	[TedarikciID] [int] IDENTITY(1,1) NOT NULL,
+	[TedarikciAdi] [nvarchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TedarikciID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
