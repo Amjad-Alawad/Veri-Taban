@@ -1,25 +1,16 @@
-create procedure Kayýt_Ekle
-@UrunAdi varchar(100),
-@BirimFiyat decimal(10,2)
-as
-begin 
-insert into Urunler(UrunAdi,BirimFiyat)values(@UrunAdi,@BirimFiyat)
-end
+create PROCEDURE KayÄ±t_Ekle
+    @UrunAdi NVARCHAR(100),
+    @BirimFiyat DECIMAL(10,2),
+    @TedarikciID INT,
+    @KategoriID INT
+AS
+BEGIN
+    INSERT INTO Urunler (UrunAdi, BirimFiyat, TedarikciID, KategoriID)
+    VALUES (@UrunAdi, @BirimFiyat, @TedarikciID, @KategoriID)
+END
 
 
-Create procedure Kayýt_Guncelle
-@UrunAdi varchar(100),
-@UrunID int,
-@BirimFiyat decimal(10,2)
-as 
-begin
-Update Urunler 
-set UrunAdi = @UrunAdi,BirimFiyat=@BirimFiyat
-where UrunID=@UrunID;
-end
-
-
-Create procedure Kayýt_Silme
+Create procedure KayÄ±t_Silme
 @UrunID int
 as 
 begin
@@ -33,6 +24,23 @@ as
 begin
 Select * from Urunler where UrunID = @UrunID
 end
+
+
+CREATE PROCEDURE KayÄ±t_Guncelle
+    @UrunID INT,
+    @UrunAdi NVARCHAR(100),
+    @BirimFiyat DECIMAL(18,2),
+    @TedarikciID INT,
+    @KategoriID INT
+AS
+BEGIN
+    UPDATE Urunler
+    SET UrunAdi = @UrunAdi,
+        BirimFiyat = @BirimFiyat,
+        TedarikciID = @TedarikciID,
+        KategoriID = @KategoriID
+    WHERE UrunID = @UrunID
+END
 
 
 
